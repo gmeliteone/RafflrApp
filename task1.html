@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+		var names =  ["John", "Jeff", "Jack"];
+
+		function myFunction(){
+			
+			var userName = document.getElementById("name").value;
+			var randomName = getRandomName();
+			
+			alert("Random Name Choosen was "+randomName);
+
+			if (userName.toLowerCase()==randomName.toLowerCase()){
+				alert("It's a match!");
+			} 
+			else if (exists(userName)){
+				alert("Better luck next time");
+			}
+
+			else {
+				alert("You cannot submit "+ userName);
+			}
+
+		}
+
+		function exists(name){
+			var properCase = name.charAt(0).toUpperCase()+name.substring(1).toLowerCase();
+			return (names.indexOf(properCase)>-1)
+		}
+
+		function getRandomName(){
+			return names[Math.floor((Math.random() * 3) )];
+		}
+		</script>
+
+	</head>
+	
+	<body> 
+		<label for="name">Type in one of the following: John, Jeff, or Jack.</label><br/><br/>
+		<input type="text" id="name"><br/><br/>
+		<input type="submit" value="Submit" onclick="myFunction()">
+
+	</body>
+
+</html>
